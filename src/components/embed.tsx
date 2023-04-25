@@ -43,7 +43,7 @@ export default function Embed() {
 
   const fullUrl = getFullUrl();
 
-  const url = `${fullUrl}/link?a=${fullData.Author}&au=${fullData.Author_Icon_URL}&d=${fullData.Description}&i=${fullData.Image_URL}&tu=${fullData.Thumbnail_URL}&t=${fullData.Title}&c=${color}`;
+  const url = `${fullUrl}link?a=${fullData.Author}&au=${fullData.Author_Icon_URL}&d=${fullData.Description}&i=${fullData.Image_URL}&tu=${fullData.Thumbnail_URL}&t=${fullData.Title}&c=${color}`;
 
   return (
     <div className="grid grid-cols-1 grow-0 gap-4">
@@ -106,9 +106,25 @@ export default function Embed() {
           </DiscordMessage>
         </DiscordMessages>
       </div>
-      <Link href={url.replaceAll(" ", "%20")} className="justify-center">
-        <Button className="" style={{'backgroundColor': 'rgb(68 69 231)'}}>Go to URL</Button>
-      </Link>
+      <div className="grid grid-cols-1 place-items-center gap-4 md:gap-0 md:grid-cols-2">
+        <Link href={url.replaceAll(" ", "%20")} className="w-32 justify-center">
+          <Button
+            className="w-32"
+            style={{ backgroundColor: "rgb(68 69 231)" }}
+          >
+            Go to URL
+          </Button>
+        </Link>
+        <Button
+          onClick={(e) => {
+            navigator.clipboard.writeText(url.replaceAll(" ", "%20"));
+          }}
+          className="w-32"
+          style={{ backgroundColor: "rgb(68 69 231)" }}
+        >
+          Copy URL
+        </Button>
+      </div>
 
       {/* <h2>{url.replaceAll(" ", "%20")}</h2> */}
     </div>
