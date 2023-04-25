@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
 
-      <Header>Create your own discord embed from a URL</Header>
+      <Header>Create your own Discord embed from a URL</Header>
       <Embed />
     </main>
   )
