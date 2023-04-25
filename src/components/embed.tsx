@@ -37,7 +37,7 @@ export default function Embed() {
 
   const fullUrl = getFullUrl();
 
-  const url = `${fullUrl}?Author=${fullData.Author}&Author_Icon_URL=${fullData.Author_Icon_URL}&Description=${fullData.Description}&Image_URL=${fullData.Image_URL}&Thumbnail_URL=${fullData.Thumbnail_URL}&Title=${fullData.Title}&color=${color}`;
+  const url = `${fullUrl}?a=${fullData.Author}&au=${fullData.Author_Icon_URL}&d=${fullData.Description}&i=${fullData.Image_URL}&tu=${fullData.Thumbnail_URL}&t=${fullData.Title}&c=${color}`;
 
   return (
     <div className="flex flex-col gap-4">
@@ -49,31 +49,41 @@ export default function Embed() {
           type="text"
           placeholder="Author"
           {...register("Author", { required: false, maxLength: 80 })}
+          className="bg-black rounded-xl hover:shadow-cornflower-blue-400 hover:shadow-xl text-white"
         />
         <input
           type="url"
           placeholder="Author Icon URL"
           {...register("Author_Icon_URL", { required: true, maxLength: 100 })}
+          className="bg-black rounded-xl hover:shadow-cornflower-blue-400 hover:shadow-xl text-white"
         />
         <input
           type="text"
           placeholder="Description"
           {...register("Description", { required: false })}
+          className="bg-black rounded-xl hover:shadow-cornflower-blue-400 hover:shadow-xl text-white"
         />
         <input
           type="url"
           placeholder="Image URL"
           {...register("Image_URL", { required: false })}
+          className="bg-black rounded-xl hover:shadow-cornflower-blue-400 hover:shadow-xl text-white"
         />
         <input
           type="url"
           placeholder="Thumbnail URL"
           {...register("Thumbnail_URL", {})}
+          className="bg-black rounded-xl hover:shadow-cornflower-blue-400 hover:shadow-xl text-white"
         />
-        <input type="text" placeholder="Title" {...register("Title", {})} />
+        <input
+          type="text"
+          placeholder="Title"
+          {...register("Title", {})}
+          className="bg-black rounded-xl hover:shadow-cornflower-blue-400 hover:shadow-xl text-white"
+        />
       </form>
       <HexColorPicker color={color} onChange={setColor} />
-      <DiscordMessages>
+      <DiscordMessages className="rounded-xl">
         <DiscordMessage
           author="BossDaily"
           avatar="https://cdn.discordapp.com/avatars/274973338676494347/00dcf84af54a0a58d2394b4054e0f7f5.png?size=100"
@@ -89,7 +99,7 @@ export default function Embed() {
           </DiscordEmbed>
         </DiscordMessage>
       </DiscordMessages>
-      <h2>{url.replaceAll(' ', '%20')}</h2>
+      <h2>{url.replaceAll(" ", "%20")}</h2>
     </div>
   );
 }
