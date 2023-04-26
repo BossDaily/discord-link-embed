@@ -24,7 +24,7 @@ export default function Embed() {
     formState: { errors },
     watch,
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data: any) => console.log(data);
   const fullData = watch();
 
   const pathname = usePathname();
