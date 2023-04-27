@@ -1,3 +1,5 @@
+import Preview from "@/components/preview";
+import { DiscordEmbed, DiscordEmbedDescription, DiscordMessage, DiscordMessages } from "@skyra/discord-components-react";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 
 export default function Page({
@@ -5,7 +7,12 @@ export default function Page({
   searchParams,
 }: {
   params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: { [key: string]: string  };
 }) {
-  return <div>{searchParams[5]}</div>;
+  console.log(params, searchParams);
+  return (
+    <div>
+      <Preview searchParams={searchParams} />
+    </div>
+  );
 }
