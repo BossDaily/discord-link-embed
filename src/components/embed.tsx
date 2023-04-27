@@ -43,13 +43,11 @@ export default function Embed() {
 
   const fullUrl = getFullUrl();
 
-  const url = `${fullUrl}link?a=${encodeURIComponent(
-    fullData.Author
-  )}&au=${encodeURIComponent(fullData.Author_Icon_URL)}&d=${
+  const url = `${fullUrl}link?a=${encodeURIComponent(fullData.Author)}&d=${
     fullData.Description
-  }&i=${encodeURIComponent(fullData.Image_URL)}&tu=${encodeURIComponent(
-    fullData.Thumbnail_URL
-  )}&t=${encodeURIComponent(fullData.Title)}&c=${encodeURIComponent(color)}`;
+  }&i=${encodeURIComponent(fullData.Image_URL)}&t=${encodeURIComponent(
+    fullData.Title
+  )}&c=${encodeURIComponent(color)}`;
 
   return (
     <div className="grid grid-cols-1 grow-0 gap-4">
@@ -63,12 +61,6 @@ export default function Embed() {
           {...register("Author", { required: false, maxLength: 80 })}
           className="bg-black rounded-xl hover:shadow-cornflower-blue-400 hover:shadow-xl text-white max-h-10"
         />
-        <input
-          type="url"
-          placeholder="Author Icon URL"
-          {...register("Author_Icon_URL", { required: true, maxLength: 100 })}
-          className="bg-black rounded-xl hover:shadow-cornflower-blue-400 hover:shadow-xl text-white max-h-10"
-        />
         <textarea
           placeholder="Description"
           {...register("Description", { required: false })}
@@ -78,12 +70,6 @@ export default function Embed() {
           type="url"
           placeholder="Image URL"
           {...register("Image_URL", { required: false })}
-          className="bg-black rounded-xl hover:shadow-cornflower-blue-400 hover:shadow-xl text-white max-h-10"
-        />
-        <input
-          type="url"
-          placeholder="Thumbnail URL"
-          {...register("Thumbnail_URL", {})}
           className="bg-black rounded-xl hover:shadow-cornflower-blue-400 hover:shadow-xl text-white max-h-10"
         />
         <input
@@ -104,6 +90,7 @@ export default function Embed() {
               authorName={fullData.Author}
               embedTitle={fullData.Title}
               color={color}
+              image={fullData.Image_URL}
             >
               <DiscordEmbedDescription slot="description">
                 {fullData.Description}
