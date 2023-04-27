@@ -5,13 +5,18 @@ import {
   DiscordMessage,
   DiscordMessages,
 } from "@skyra/discord-components-react";
-import { Metadata } from "next";
+import { Metadata, ResolvingMetadata } from "next";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 
-export async function generateMetadata(searchParams: {
-  [key: string]: string | string[] | undefined;
-}): Promise<Metadata> {
-  const embed: any = searchParams.searchParams;
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata({ params, searchParams }: Props,
+  parent?: ResolvingMetadata,
+): Promise<Metadata> {
+  const embed: any = searchParams;
   console.log(embed);
   return {
     title: embed.t,
