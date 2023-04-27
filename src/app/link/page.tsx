@@ -22,6 +22,8 @@ export async function generateMetadata({ params, searchParams }: Props
     openGraph: {
       description: embed.d,
       title: embed.t,
+      type: "website",
+      
     },
     themeColor: embed.c,
   };
