@@ -13,8 +13,7 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export async function generateMetadata({ params, searchParams }: Props,
-  parent?: ResolvingMetadata,
+export async function generateMetadata({ params, searchParams }: Props
 ): Promise<Metadata> {
   const embed: any = searchParams;
   console.log(embed);
