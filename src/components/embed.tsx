@@ -43,7 +43,13 @@ export default function Embed() {
 
   const fullUrl = getFullUrl();
 
-  const url = `${fullUrl}link?a=${fullData.Author}&au=${fullData.Author_Icon_URL}&d=${fullData.Description}&i=${fullData.Image_URL}&tu=${fullData.Thumbnail_URL}&t=${fullData.Title}&c=${color.replace('#', '%23')}`;
+  const url = `${fullUrl}link?a=${encodeURIComponent(
+    fullData.Author
+  )}&au=${encodeURIComponent(fullData.Author_Icon_URL)}&d=${
+    fullData.Description
+  }&i=${encodeURIComponent(fullData.Image_URL)}&tu=${encodeURIComponent(
+    fullData.Thumbnail_URL
+  )}&t=${encodeURIComponent(fullData.Title)}&c=${encodeURIComponent(color)}`;
 
   return (
     <div className="grid grid-cols-1 grow-0 gap-4">
