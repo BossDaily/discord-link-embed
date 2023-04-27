@@ -25,8 +25,8 @@ export async function generateMetadata({
       description: embed.d,
       title: embed.t,
       type: "website",
-      images: [embed.tu],
     },
+    authors: [embed.a],
     twitter: {
       card: "summary_large_image",
       images: [embed.i]
