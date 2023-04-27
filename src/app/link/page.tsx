@@ -28,6 +28,7 @@ export async function generateMetadata({
       images: [embed.tu],
     },
     twitter: {
+      card: "summary_large_image",
       images: [embed.i]
     },
     themeColor: embed.c,
