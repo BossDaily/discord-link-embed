@@ -9,10 +9,10 @@ import { Metadata } from "next";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 
 export async function generateMetadata(searchParams: {
-  [key: string]: string;
+  [key: string]: string | string[] | undefined;
 }): Promise<Metadata> {
-  const embed: any = searchParams.searchParams
-  console.log(embed)
+  const embed: any = searchParams.searchParams;
+  console.log(embed);
   return {
     title: embed.t,
     openGraph: {
