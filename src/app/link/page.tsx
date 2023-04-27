@@ -13,8 +13,10 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export async function generateMetadata({ params, searchParams }: Props
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+  searchParams,
+}: Props): Promise<Metadata> {
   const embed: any = searchParams;
   console.log(embed);
   return {
@@ -23,7 +25,10 @@ export async function generateMetadata({ params, searchParams }: Props
       description: embed.d,
       title: embed.t,
       type: "website",
-      
+      images: [embed.tu],
+    },
+    twitter: {
+      images: [embed.i]
     },
     themeColor: embed.c,
   };
