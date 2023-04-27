@@ -22,7 +22,6 @@ export default function Preview({
             authorName={searchParams.a}
             embedTitle={searchParams.t}
             color={searchParams.c}
-            thumbnail={searchParams.t}
             image={searchParams.i}
           >
             <DiscordEmbedDescription slot="description">
